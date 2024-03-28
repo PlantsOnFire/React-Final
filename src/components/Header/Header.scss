@@ -3,7 +3,7 @@
 header {
   #top-header {
     background-color: $light-blue; 
-    border-bottom: 8px solid $yellow;
+    border-bottom: 8px solid black;
     color: black !important;
     text-decoration: none;
     #logo {
@@ -26,7 +26,8 @@ header {
       align-items: center;
       justify-content: center;
       &:has(.active) {
-        background-color: $yellow;
+        background-color: black;
+        color: $green;
         background-clip: inherit;
         border-radius: 15px;
         transition: all 1s ease;
@@ -37,6 +38,9 @@ header {
           font-size: 18px;
           margin: 0;
           padding: 10px 16px 10px;
+          &.active {
+            color: $green;
+          }
       }
     }
   }

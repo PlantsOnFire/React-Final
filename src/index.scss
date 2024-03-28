@@ -1,16 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Tauri&display=swap');
 
+
 body {
   margin: 0;
+  background-image: url(./assets/background.png);
+  background-size: cover;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  // #app-container, #root {
-  //   height: 100vh;
-  // }
+  #app-container, #root {
+    height: 100vh;
+  }
 }
 
 code {

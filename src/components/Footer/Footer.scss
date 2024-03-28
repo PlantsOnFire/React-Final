@@ -1,0 +1,18 @@
+@import '../../styles/colors.scss';
+
+footer {
+  margin-top: auto;
+  background-color: $light-blue;
+  border-top: 8px solid black;
+  #cal-corp-logo {
+    width: 200px;
+  }
+  ul#footer-nav {
+    li {
+      a {
+        color: black;
+        font-weight: bold;
+      }
+    }
+  }
+}
