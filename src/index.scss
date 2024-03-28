@@ -4,7 +4,8 @@
 body {
   margin: 0;
   background-image: url(./assets/background.png);
-  background-size: cover;
+  background-size: 100%;
+  background-repeat: repeat-y;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Montserrat", sans-serif;
