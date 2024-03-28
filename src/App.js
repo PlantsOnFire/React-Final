@@ -12,16 +12,8 @@ import CountrySearchPage from './pages/CountrySearchPage/CountrySearchPage';
 import UserDefaultPage from './pages/ProtectedPages/UserView/UserDefaultPage/UserDefaultPage';
 
 function App() {
-  const fonts = [
-    'tauri-regular',
-    'wix-madefor',
-    'jost',
-    'bevan-regular',
-    'archivo',
-    'open-sans'
-  ]
   return (
-    <div className={fonts[0]}>
+    <div className='d-flex flex-column' id='app-container'>
       <Header />
       <Routes>
         <Route path='/' element={<HomePage/>}/>
@@ -38,7 +30,6 @@ function App() {
       </Routes>
       <Footer />
     </div>
-
   );
 }
 
