@@ -2,9 +2,14 @@ import './FormPage.scss';
 
 function FormPage () {
   return (
-    <form>
-      Form Page
-    </form>
+    <>
+      <div className='accountBanner'>
+        <h2>TEST YOUR KNOWLEDGE</h2>
+      </div>
+      <form>
+        Form Page
+      </form>
+    </>
   )
 }
 
