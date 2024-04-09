@@ -19,10 +19,7 @@ function Header () {
           <li className='col-sm nav-item'><NavLink className='nav-link' to='/map'>World Map</NavLink></li>
           <li className='col-sm nav-item'><NavLink className='nav-link' to='/search'>Country Search</NavLink></li>
           <li className='col-sm nav-item'><NavLink className='nav-link' to='/random'>Random Country</NavLink></li>
-          {!loggedIn 
-            ? <li className='col-sm nav-item'><NavLink className='nav-link' to='/login'>Login</NavLink></li>
-            : <li className='col-sm nav-item'><NavLink className='nav-link' to='/user'>Account</NavLink></li> 
-          }
+          <li className='col-sm nav-item'><NavLink className='nav-link' to='/account'>Account</NavLink></li>
         </ul>
       </nav>
     </header>

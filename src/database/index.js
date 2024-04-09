@@ -1,2 +1,2 @@
-export { getData, getPantryData, getUserInfo } from "./read";
-export { updateTasksDB, updatePantry, addUserInformation } from "./write";
+export { getData, getUserInfo } from "./read";
+export { updateQuizResults, addUserInformation } from "./write";

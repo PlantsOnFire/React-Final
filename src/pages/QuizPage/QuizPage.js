@@ -1,6 +1,6 @@
-import './FormPage.scss';
+import './QuizPage.scss';
 
-function FormPage () {
+function QuizPage () {
   return (
     <>
       <div className='accountBanner'>
@@ -13,4 +13,4 @@ function FormPage () {
   )
 }
 
-export default FormPage;
+export default QuizPage;

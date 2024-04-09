@@ -11,6 +11,9 @@ function Footer () {
         <li className='nav-item'><Link to='/map' className='nav-link'>World Map</Link></li>
         <li className='nav-item'><Link to='/search' className='nav-link'>Country Search</Link></li>
         <li className='nav-item'><Link to='/random' className='nav-link'>Random Country</Link></li>
+        <li className='nav-item'><Link className='nav-link' to='/account'>Account</Link></li>
+        <li className='nav-item'><Link to='/about' className='nav-link'>About Us</Link></li>
+        <li className='nav-item'><Link to='/contact' className='nav-link'>Contact Us</Link></li>
       </ul>
     </footer>
   )

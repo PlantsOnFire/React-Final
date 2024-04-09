@@ -2,24 +2,11 @@ import { setDoc, doc } from "firebase/firestore";
 import { db } from "../FirebaseConfig";
 
 //Grocery-list Addition
-export async function updateTasksDB (userID, tasks) {
+export async function updateQuizResults (userID, quizResults) {
   try {
     await setDoc(
-      doc(db, 'grocery-list', userID), 
-      {tasks: tasks}, 
-      {merge: false}
-    );
-    console.log('write');
-  } catch (e) {
-    console.error(e); // handle your error here
-  }
-}
-//Pantry Addition
-export async function updatePantry (userID, pantry) {
-  try {
-    await setDoc(
-      doc(db, 'pantry', userID), 
-      {pantry: pantry}, 
+      doc(db, 'quiz-results', userID), 
+      {quizResults: quizResults}, 
       {merge: false}
     );
     console.log('write');
@@ -36,7 +23,7 @@ export async function addUserInformation (userID, firstname, lastname, age, gend
       { userinfo: {
         firstname: firstname,
         lastname: lastname,
-        age: age,
+        dob: dob,
         gender: gender
       }
       }, 
