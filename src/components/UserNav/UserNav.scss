@@ -1,0 +1,44 @@
+@import '../../styles/colors.scss';
+
+nav {
+    background-color: $yellow;
+    color: black;
+     
+    align-items: stretch;
+    list-style-type: none;
+    column-gap: 10vw;
+    li {
+      padding: 0;
+      width: 70%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &:has(.active) {
+        background-color: $green;
+        color: $green;
+        background-clip: inherit;
+        border-radius: 15px;
+        transition: all 1s ease;
+      }
+    }
+  }
+@media (max-width: 767px) { 
+  header #navlinks {
+    column-gap: 1vw;
+  }
+}
+
+//XS View
+@media (max-width: 575px) { 
+  header {
+    h1 {
+      text-align: center;
+      margin-top: 10px !important;
+    }
+    #navlinks {
+        li {
+            width: 75%;
+        }
+      }
+  }
+}

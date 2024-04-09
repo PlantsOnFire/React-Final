@@ -3,7 +3,9 @@ import './AccountPage.scss';
 function AccountPage () {
   return (
     <main>
-      Account Information
+      <div className='accountBanner'>
+        <h2>ACCOUNT INFORMATION</h2>
+      </div>
     </main>
   )
 }

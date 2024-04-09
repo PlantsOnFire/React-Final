@@ -1,0 +1,27 @@
+@import '../../styles/colors.scss';
+
+main {
+    .banner{
+        background-color: $yellow;
+        padding: 1vw;    
+        
+        .loginImg{
+            width: 7vw;
+            margin-left: 10vw;
+            margin-right: 3vw;
+        } 
+        .loginImg2{
+            width: 7vw;
+            margin-left: 3vw;
+            margin-right: 10vw;
+        }    
+       
+        h1{        
+            font-size:4vw;
+            font-weight: bold;
+            color: $light-blue;
+            text-shadow: 0 0 3px black,  0 0 8px $green;
+            display: inline;
+        }        
+    }
+}
