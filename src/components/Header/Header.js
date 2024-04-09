@@ -4,7 +4,7 @@ import logo from '../../assets/Logo-Blue-Black.png';
 import { useState } from 'react';
 
 function Header () {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   return (
     <header>
       <nav className='justify-content-center align-items-center m-0'>
@@ -12,7 +12,7 @@ function Header () {
           <img src={logo} id='logo' className='col-sm-3 col-lg-2 col-xl-1'/>
           <h1 className='col-sm mb-0'>Geo Adventure Kids</h1>
         </Link>
-        <ul id='navlinks' className='row text-center fs-5 px-3 py-4 m-0'>
+        <ul id='navlinks' className='row text-center fs-5 px-3 py-4 m-0 justify-content-center'>
           <li className='col-sm nav-item'>
             <NavLink className='nav-link' to='/'>Home</NavLink>
             </li>

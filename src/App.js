@@ -12,6 +12,7 @@ import CountrySearchPage from './pages/CountrySearchPage/CountrySearchPage';
 import UserDefaultPage from './pages/ProtectedPages/UserView/UserDefaultPage/UserDefaultPage';
 
 function App() {
+  
   return (
     <div className='d-flex flex-column' id='app-container'>
       <Header />
