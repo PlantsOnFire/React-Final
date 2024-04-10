@@ -1,26 +1,13 @@
 @import '../../styles/colors.scss';
 
-main {
-    .banner{
-        background-color: $yellow;
-        padding: 1vw;    
-        
-        .travelImg{
-            width: 10vw;
-            margin-left: 15vw;
-            margin-right: 10vw;
-        } 
-        .travelImg2{
-            width: 10vw;
-            margin-left: 10vw;
-        }    
-       
-        h1{        
-            font-size:4vw;
-            font-weight: bold;
-            color: $light-blue;
-            text-shadow: 0 0 3px black,  0 0 8px $green;
-            display: inline;
-        }        
+main.world-page {
+    background-color: white;
+    #world-map {
+        svg {
+            fill: $green;
+            path:hover {
+                fill: $red
+            }
+        }
     }
 }

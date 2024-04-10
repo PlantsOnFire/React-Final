@@ -1,0 +1,17 @@
+@import '../../styles/colors.scss';
+
+.banner{
+  background-color: $yellow;
+  padding: 1vw;
+  .banner-img {
+    max-height: 100px;
+    width: auto;
+  }
+  h1{
+      white-space: nowrap;
+      font-size: calc(2rem + 1.5vw);
+      font-weight: bold;
+      color: $light-blue;
+      text-shadow: 0 0 3px black,  0 0 8px $green;
+  }
+}

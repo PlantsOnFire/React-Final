@@ -1,13 +1,15 @@
 import './WorldMapPage.scss';
+import Banner from '../../components/Banner/Banner';
 import travel from '../../assets/travel.png';
+import {ReactComponent as World} from '../../assets/world.svg';
 
-function WorldMapPage () {
+function WorldMapPage ({worldData, europeCountries, uniqueContinents}) {
+  
   return (
-    <main>
-      <div className='banner'>
-        <img src={travel} id='travel' className='travelImg'/>
-        <h1>WORLD MAP</h1>
-        <img src={travel} id='travel2' className='travelImg2'/>
+    <main className='world-page'>
+      <Banner img={travel} title='WORLD MAP'/>
+      <div className='row m-0' id='world-map'>
+        <World/>
       </div>
     </main>
   )
