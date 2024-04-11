@@ -10,4 +10,24 @@ main.world-page {
             }
         }
     }
+    .mapTitle{
+        background-color: $light-blue;
+        color: $dark-blue;
+        font-size: 190%;
+        text-align: center;
+        font-weight: bolder;
+        padding-top: 1%;
+        padding-bottom: 1%;
+    }
+    .mapText{
+        background-color: $green;
+        font-size:175%;
+        float: left;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        font-weight: bold;
+        color: $dark-blue;
+        text-shadow: 0 0 3px $green,  0 0 4px $dark-blue;
+        text-align: center;
+    }
 }
