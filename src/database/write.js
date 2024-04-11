@@ -16,7 +16,7 @@ export async function updateQuizResults (userID, quizResults) {
 }
 
 //For adding User Information
-export async function addUserInformation (userID, firstname, lastname, age, gender) {
+export async function addUserInformation (userID, firstname, lastname, dob, gender) {
   try {
     await setDoc(
       doc(db, 'users', userID), 

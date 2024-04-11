@@ -1,6 +1,10 @@
+//Module Imports
 import {Routes, Route} from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+//Firebase Imports
+import {} from './auth';
+import {getData, getUserInfo,updateQuizResults, addUserInformation} from './database';
 
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -10,9 +14,14 @@ import WorldMapPage from './pages/WorldMapPage/WorldMapPage';
 import RandomCountryPage from './pages/RandomCountryPage/RandomCountryPage';
 import CountrySearchPage from './pages/CountrySearchPage/CountrySearchPage';
 import QuizPage from './pages/QuizPage/QuizPage';
-import LoginPage from './pages/LoginPage/LoginPage';
-import RegisterPage from './pages/RegisterPage/RegisterPage';
+
 import AccountPage from './pages/AccountPage/AccountPage';
+  import DefaultAccountPage from './pages/AccountPage/DefaultAccountPage/DefaultAccountPage';  
+  import LoginPage from './pages/AccountPage/LoginPage/LoginPage';
+  import RegisterPage from './pages/AccountPage/RegisterPage/RegisterPage';
+  import DisplayAccountPage from './pages/AccountPage/DisplayAccountPage/DisplayAccountPage';
+
+
 import ContactPage from './pages/ContactPage/ContactPage';
 import AboutPage from './pages/AboutPage/AboutPage';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
@@ -73,9 +82,14 @@ function App() {
         <Route path='/search' element={<CountrySearchPage/>}/>
         <Route path='/random' element={<RandomCountryPage/>}/>
 
-        <Route path='/register' element={<RegisterPage/>}/>
-        <Route path='/login' element={<LoginPage/>}/>        
-        <Route path='/account' element={<AccountPage/>}/>
+        <Route path='/account' element={<AccountPage/>}>
+          <Route path='' element={<DefaultAccountPage/>}/>
+          <Route path='register' element={<RegisterPage/>}/>
+          <Route path='login' element={<LoginPage/>}/>
+          <Route path='display' element={<DisplayAccountPage/>}/>
+        </Route>
+
+
 
         <Route path='/quiz' element={<QuizPage/>}/>
 

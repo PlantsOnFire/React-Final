@@ -1,11 +1,12 @@
 import './AccountPage.scss';
-import account from '../../assets/account.png';
-import Banner from '../../components/Banner/Banner';
+import AccountNav from '../../components/AccountNav/AccountNav';
+import {Outlet} from 'react-router-dom';
 
 function AccountPage () {
   return (
     <main>
-      <Banner title='USER ACCOUNT' img={account}/>
+      <AccountNav/>
+      <Outlet/>
     </main>
   )
 }

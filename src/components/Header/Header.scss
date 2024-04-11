@@ -25,30 +25,59 @@ header {
       display: flex;
       align-items: center;
       justify-content: center;
+      svg {
+        display: none;
+      }
       &:has(.active) {
         background-color: $yellow;
         color: $green;
         background-clip: inherit;
         border-radius: 15px;
-        transition: all 1s ease;
+        &.account-link {
+          position: relative;
+          scale: 100% 210%;
+          border-radius: 0;
+          background-color: $light-blue;
+          a {
+            scale: 100% 50%;
+          }
+        }
+        svg {
+          display: inline;
+        }
       }
         a {
           white-space: nowrap;
           color: black;
           font-weight: bold;
-          font-size: 18px;
           margin: 0;
           padding: 10px 16px 10px;
       }
     }
   }
 }
-@media (max-width: 767px) { 
+@media (max-width: 991px) { 
   header #navlinks {
     column-gap: 1vw;
   }
 }
 
+@media (max-width: 767px) { 
+  header {
+    #top-header {
+      h1 {display: none}
+    }
+    #navlinks {
+      li.account-link:has(.active) {
+        scale: 100% 150%;
+        translate: 0 30%;
+        a {
+          scale: 100% 70%;
+        }
+      }
+    }
+  }
+}
 //XS View
 @media (max-width: 575px) { 
   header {
