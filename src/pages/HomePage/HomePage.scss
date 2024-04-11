@@ -1,1 +1,22 @@
 @import '../../styles/colors.scss';
+
+.homeText{
+    text-align: center;
+    border-radius: 30%;
+    background-color: $green;
+    padding: 2%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 27%;
+    margin-right: 27%;
+    font-weight: bold;
+    .homeTitle{
+        color: black;
+        font-weight: bolder;
+    }
+    .homeLinks{
+        text-decoration: none;
+        color: $link-blue;
+        font-weight: bolder;
+    }
+}

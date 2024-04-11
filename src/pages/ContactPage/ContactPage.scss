@@ -1,1 +1,24 @@
 @import '../../styles/colors.scss';
+
+.topText{
+    text-align: center;
+    background-color: $green;
+    color: black;
+    font-size: 130%;
+    font-weight: bold;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+.contactForm{
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 35%;
+    background-color: $blue;
+    padding: 3%;
+    padding-top: 4%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
