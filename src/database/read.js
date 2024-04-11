@@ -6,7 +6,7 @@ export async function getData (userID) {
   const docSnap = await getDoc(docRef);
   if (docSnap.exists()) {
     let dbData = docSnap.data()
-    return dbData.tasks;
+    return dbData.quizResults;
   } else {
     throw new Error('No quiz results.');
   }
@@ -19,6 +19,6 @@ export async function getUserInfo (userID) {
     let dbData = docSnap.data()
     return dbData.userinfo;
   } else {
-    throw new Error('No tasks.');
+    throw new Error('No user info.');
   }
 }

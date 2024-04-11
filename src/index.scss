@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Tauri&display=swap');
-
+@import './styles/colors.scss';
 
 body {
   margin: 0;
@@ -14,6 +14,51 @@ body {
   font-style: normal;
   #app-container, #root {
     height: 100vh;
+  }
+  // Button Styles Throughout Project
+  button {
+    padding: 16px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 24px;
+    color: white;
+    &.button-primary {
+      background-color: $blue;
+      &:hover {
+        background-color: $dark-blue;
+      }
+      &:focus {
+        background-color: $blue;
+      }
+    }
+    &.button-secondary {
+      background-color: $dark-green;
+      &:hover {
+        background-color: $darker-green;
+      }
+      &:focus {
+        background-color: $dark-green;
+      }
+    }
+    &.button-error {
+      background-color: $red;
+      &:hover {
+        background-color: $dark-red;
+      }
+      &:focus {
+        background-color: $red;
+      }
+    }
+  }
+
+  .error {
+    color: $red;
+    font-weight: 600;
+  }
+  .success {
+    color: rgb(0, 180, 0);
+    font-weight: 600;
   }
 }
 

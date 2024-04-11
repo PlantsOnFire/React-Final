@@ -2,9 +2,9 @@ import './DisplayAccountPage.scss';
 
 function DisplayAccountPage () {
   return(
-    <div>
+    <main>
       DISPLAY ACCOUNT INFORMATION
-    </div>
+    </main>
   )
 }
 

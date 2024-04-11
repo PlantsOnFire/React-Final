@@ -1,1 +1,12 @@
 @import '../../../styles/colors.scss';
+
+#vis-toggle {
+  position: relative;
+  float: right;
+  margin-right: 10px;
+  margin-top: -33px;
+  &:hover {
+    font-size: 20px;
+    margin-top: -37px;
+  }
+}

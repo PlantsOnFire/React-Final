@@ -4,10 +4,10 @@ import {Outlet} from 'react-router-dom';
 
 function AccountPage () {
   return (
-    <main>
+    <>
       <AccountNav/>
       <Outlet/>
-    </main>
+    </>
   )
 }
 

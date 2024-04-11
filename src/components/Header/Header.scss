@@ -2,7 +2,7 @@
 
 header {
   #top-header {
-    background-color: $light-blue; 
+    background-color: $blue; 
     border-bottom: 8px solid $yellow;
     color: black !important;
     text-decoration: none;
@@ -37,7 +37,7 @@ header {
           position: relative;
           scale: 100% 210%;
           border-radius: 0;
-          background-color: $light-blue;
+          background-color: $blue;
           a {
             scale: 100% 50%;
           }
