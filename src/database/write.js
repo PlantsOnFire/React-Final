@@ -1,7 +1,7 @@
 import { setDoc, doc } from "firebase/firestore";
 import { db } from "../FirebaseConfig";
 
-//Grocery-list Addition
+//Add Quiz Results to Database
 export async function updateQuizResults (userID, quizResults) {
   try {
     await setDoc(
@@ -16,15 +16,14 @@ export async function updateQuizResults (userID, quizResults) {
 }
 
 //For adding User Information
-export async function addUserInformation (userID, firstname, lastname, dob, gender) {
+export async function addUserInformation (userID, firstname, lastname, dob) {
   try {
     await setDoc(
       doc(db, 'users', userID), 
       { userinfo: {
         firstname: firstname,
         lastname: lastname,
-        dob: dob,
-        gender: gender
+        dob: dob
       }
       }, 
       {merge: false}

@@ -15,3 +15,23 @@
       text-shadow: 0 0 3px black,  0 0 8px $green;
   }
 }
+//Under XL Size
+@media (max-width: 1199px) { 
+  .banner {
+    .banner-img {
+        display: none;
+    }
+    h1 {
+      padding: 18px;
+    }
+  }
+}
+
+//Under Medium Size
+@media (max-width: 767px) {
+  .banner {
+    h1 {
+      white-space: wrap;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 //==========Module Imports====================
-import {Routes, Route} from 'react-router-dom';
+import {Routes, Route, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 //===============Firebase Imports=============
@@ -16,6 +16,7 @@ import HomePage from './pages/HomePage/HomePage';
 import AccountPage from './pages/AccountPage/AccountPage';
   import DefaultAccountPage from './pages/AccountPage/DefaultAccountPage/DefaultAccountPage';  
   import LoginPage from './pages/AccountPage/LoginPage/LoginPage';
+  import LogoutPage from './pages/AccountPage/LogoutPage/LogoutPage';
   import RegisterPage from './pages/AccountPage/RegisterPage/RegisterPage';
   import DisplayAccountPage from './pages/AccountPage/DisplayAccountPage/DisplayAccountPage';
   import QuizPage from './pages/AccountPage/QuizPage/QuizPage';
@@ -26,6 +27,7 @@ import ErrorPage from './pages/ErrorPage/ErrorPage';
 
 
 function App() {
+  const navigate = useNavigate();
   //====================API STATES=======================
     const [worldData, setWorldData] = useState([]);
     const [europeCountries, setEuropeCountries] = useState([]);
@@ -41,7 +43,6 @@ function App() {
     const [userID, setUserID] = useState(false);
     const [userEmail, setUserEmail] = useState(false);
     const [addInfo, setAddInfo] = useState(false);
-    const [loading, setLoading] = useState(true);
     const [userInfo, setUserInfo] = useState(false);
     const [logoutStatus, setLogoutStatus] = useState('');
     const [quizResults, setQuizResults] = useState([]);
@@ -93,9 +94,6 @@ function App() {
             .catch(err=>{
               console.log(err);
             });
-          setLoading(false);
-        } else {
-          setLoading(false);
         }
       }, 300) //Gives it time to get the auth.currentUser.uid and email.
     }, [userID, addInfo]);
@@ -114,7 +112,9 @@ function App() {
           setUserEmail(false);
           setUserInfo(false);
           setQuizResults([]);
-          alert('You are now logged out!');
+          if (alert('You are now logged out!') == undefined) {
+            navigate('/');
+          }
         })
         .catch(err=>setLogoutStatus({message: err, status: false}))
     }
@@ -130,7 +130,7 @@ function App() {
 
   return (
     <div className='d-flex flex-column' id='app-container'>
-      <Header />
+      <Header userID={userID} userInfo={userInfo}/>
       <Routes>
         <Route path='/' element={
           <HomePage
@@ -149,7 +149,6 @@ function App() {
 
         <Route path='/account' element={
           <AccountPage 
-            loading={loading}
             userID={userID} 
             userEmail={userEmail}
             userInfo = {userInfo}
@@ -159,10 +158,17 @@ function App() {
             addInfo={addInfo}
             setAddInfo={setAddInfo}
           />}>
-          <Route path='' element={<DefaultAccountPage/>}/>
-          <Route path='register' element={<RegisterPage/>}/>
-          <Route path='login' element={<LoginPage/>}/>
-          <Route path='display' element={<DisplayAccountPage/>}/>
+          <Route path='' element={<DefaultAccountPage userID={userID}/>}/>
+          <Route path='register' element={<RegisterPage handleLogin={handleLogin}/>}/>
+          <Route path='login' element={<LoginPage handleLogin={handleLogin}/>}/>
+          <Route path='logout' element={<LogoutPage handleLogout={handleLogout}/>}/>
+          <Route path='display' element={
+            <DisplayAccountPage
+              userID={userID} 
+              userEmail={userEmail}
+              userInfo = {userInfo}
+            />}
+          />
           <Route path='quiz' element={<QuizPage/>}/>
           <Route path='editUser' element={<AccountUpdatePage/>}/>
         </Route>

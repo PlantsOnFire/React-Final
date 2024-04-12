@@ -1,10 +1,14 @@
 import './DefaultAccountPage.scss';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Banner from '../../../components/Banner/Banner';
 import account from '../../../assets/account.png';
 
-function DefaultAccountPage () {
+function DefaultAccountPage ({userID}) {
   const navigate = useNavigate();
+  useEffect(()=> {
+    userID && navigate('/account/display')
+  }, [])
   return (
     <main>
       <Banner title='WELCOME' img={account}/>

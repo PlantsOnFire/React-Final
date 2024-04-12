@@ -2,10 +2,10 @@ import './AccountPage.scss';
 import AccountNav from '../../components/AccountNav/AccountNav';
 import {Outlet} from 'react-router-dom';
 
-function AccountPage () {
+function AccountPage ({userID}) {
   return (
     <>
-      <AccountNav/>
+      <AccountNav userID={userID}/>
       <Outlet/>
     </>
   )
