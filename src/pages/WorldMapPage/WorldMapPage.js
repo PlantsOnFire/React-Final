@@ -5,28 +5,24 @@ import {ReactComponent as World} from '../../assets/world.svg';
 import { useState} from 'react';
 
 function WorldMapPage ({worldData, europeCountries, uniqueContinents}) {
-  
-
   const [Location, setLocation] = useState(null);
-  const [Type, setType] = useState(null);
 
   const handleClick = (event) =>{
     if (event.target.getAttribute('class') === null){
-      setType('name');
+      setLocation(event.target.getAttribute('name'));
     }
     else{
-      setType('class');
+      setLocation(event.target.getAttribute('class'));
     }
-    setLocation(event.target.getAttribute(Type));
   }
 
   return (
     <main className='world-page'>
       <Banner img={travel} title='WORLD MAP'/>
-      <div className='mapTitle'>Choose a location and it will appear below!</div>
-      <div className='row m-0' id='world-map'>
-        <div className='mapText'>{Location}</div>
-        <World onClick={(event)=> handleClick(event)}/>  
+      <div className='mapTitle p-3'>Choose a location to learn the name!</div>
+      <div className='mapText p-3'>{Location}</div>      
+      <div className='row mx-0 my-3' id='world-map'>
+        <World onClick={(event)=> handleClick(event)}/>
       </div>
       
     </main>

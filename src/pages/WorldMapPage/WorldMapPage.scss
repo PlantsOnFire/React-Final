@@ -4,7 +4,11 @@ main.world-page {
     background-color: white;
     #world-map {
         svg {
+            width: 100%;
+            height: auto;
             fill: $green;
+            stroke: black;
+            stroke-width: 0.5px;
             path:hover {
                 fill: $red
             }
@@ -16,18 +20,26 @@ main.world-page {
         font-size: 190%;
         text-align: center;
         font-weight: bolder;
-        padding-top: 1%;
-        padding-bottom: 1%;
     }
     .mapText{
         background-color: $green;
         font-size:175%;
-        float: left;
-        padding-top: 1%;
-        padding-bottom: 1%;
         font-weight: bold;
         color: $dark-blue;
         text-shadow: 0 0 3px $green,  0 0 4px $dark-blue;
         text-align: center;
+    }
+}
+
+@media only screen and (max-width: 761px) {
+    main.world-page {
+        #world-map {
+            overflow: scroll;
+            svg {
+                width: 1000px;
+                max-width: none;
+                stroke-width: 1px;
+            }
+        }
     }
 }
