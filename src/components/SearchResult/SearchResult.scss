@@ -5,6 +5,12 @@
     text-align: center;
     background-color: $blue;
   }
+  button#favourite-button {
+    border-radius: 0;
+    &.fav {
+      background-color: $red;
+    }
+  }
   #result-container {
     background-color: $yellow;
     font-weight: bold;

@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import './SearchResult.scss';
+import { FaHeart, FaHeartCircleCheck } from "react-icons/fa6";
 
-function SearchResult ({displayCountry}) {
+function SearchResult ({displayCountry, handleAddPlace, worldIndex, favePlaces, handleRemovePlace}) {
   const [population, setPopulation] = useState(displayCountry.population);
   const [time, setTime] = useState(new Date(Date.now()).toLocaleString());
   const [displayTime, setDisplayTime] = useState([]);
+  const [isFav, setIsFave] = useState(false);
   
   //Get Local Times
   useEffect(()=> {
@@ -19,9 +21,24 @@ function SearchResult ({displayCountry}) {
     setDisplayTime(countryTime);
   }, [displayCountry])
 
+  //Check for Fave Place
+  useEffect(() =>{
+    if (favePlaces.findIndex((item)=> item.index === worldIndex) !== -1) {
+      setIsFave(true);
+    } else {
+      setIsFave(false);
+    }
+  }, [favePlaces, displayCountry])
+  //Add Place to Favourites
+  function addToFavourites () {
+    isFav ? handleRemovePlace(worldIndex) : handleAddPlace(displayCountry.name.common, worldIndex);
+  }
   return (
     <>
-      <h1 className='mb-0 p-3'>{displayCountry.name.common}</h1>
+    <div className='row m-0'>
+      <h1 className='mb-0 p-3 col'>{displayCountry.name.common}</h1>
+      <button onClick={addToFavourites} className={isFav ? 'fav col-auto button-secondary' : 'un-fav col-auto button-secondary'} id='favourite-button'>Want to Travel  {isFav ? <FaHeartCircleCheck/> : <FaHeart />}</button>
+    </div>
       <div id='result-container' className='fs-5 p-4'>
         <div className='row mb-3'>
           <div className='col-md-6'>

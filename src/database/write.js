@@ -2,11 +2,11 @@ import { setDoc, doc } from "firebase/firestore";
 import { db } from "../FirebaseConfig";
 
 //Add Quiz Results to Database
-export async function updateQuizResults (userID, quizResults) {
+export async function updateFavePlaces (userID, favePlaces) {
   try {
     await setDoc(
-      doc(db, 'quiz-results', userID), 
-      {quizResults: quizResults}, 
+      doc(db, 'places-to-travel', userID), 
+      {places: favePlaces}, 
       {merge: false}
     );
     console.log('write');

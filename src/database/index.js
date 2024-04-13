@@ -1,2 +1,2 @@
 export { getData, getUserInfo } from "./read";
-export { updateQuizResults, addUserInformation } from "./write";
+export { updateFavePlaces, addUserInformation } from "./write";

@@ -30,7 +30,6 @@ function LoginPage ({handleLogin}) {
     if (userErrorTemp.length === 0 && passErrorTemp.length === 0) {
       setErrorMessage(false);
       setSuccessMessage(false);
-      console.log('login');
       loginFirebase(email, pass)
         .then((response)=>{
           handleLogin(response.userID);

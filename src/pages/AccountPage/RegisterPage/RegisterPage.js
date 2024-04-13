@@ -61,11 +61,9 @@ function RegisterPage ({handleLogin}) {
     setFirstError(firstErrorTemp);
     setLastError(lastErrorTemp);
     setDobError(dobErrorTemp);
-    console.log(dob);
     if (userErrorTemp.length === 0 && pass1ErrorTemp.length === 0 && pass2ErrorTemp.length === 0 && firstErrorTemp.length === 0 && lastErrorTemp.length === 0 && dobErrorTemp.length === 0) {
       setErrorMessage(null);
       setSuccessMessage([]);
-      console.log('submitted!')
       registerFirebase(email, pass1)
         .then((res1) => {
           let message = [];
