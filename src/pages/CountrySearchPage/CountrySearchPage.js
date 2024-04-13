@@ -3,6 +3,7 @@ import discover from '../../assets/discover.png';
 import Banner from '../../components/Banner/Banner';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import SearchResult from '../../components/SearchResult/SearchResult';
+import { FaMagnifyingGlass } from "react-icons/fa6";
 import { useState } from 'react';
 
 function CountrySearchPage ({uniqueContinents, worldData}) {
@@ -18,7 +19,10 @@ function CountrySearchPage ({uniqueContinents, worldData}) {
     <main id='country-search-page'>
       <Banner title='COUNTRY SEARCH' img={discover}/>
       {isSubmit
-        ? <SearchResult displayCountry={displayCountry} setIsSubmit={setIsSubmit}/>
+        ? <div className='container form-container p-5' id='display-country'>
+            <div><button className='button-primary fs-5 mb-5' onClick={()=>{setIsSubmit(false);}}><FaMagnifyingGlass />  Search Again</button></div>        
+            <SearchResult displayCountry={displayCountry} setIsSubmit={setIsSubmit}/>
+          </div>
         : <SearchForm 
             uniqueContinents  ={uniqueContinents}
             worldData={worldData}

@@ -5,7 +5,7 @@ function AboutPage () {
 return (
   <main>
     <Banner title='ABOUT GEO ADVENTURE KIDS'/>
-    <div className='geoKidsInfo'>
+    <div className='geoKidsInfo info-container'>
       <h2 className='title'>About Geo Adventure Kids</h2>
       <p className='paragraph'>
         Geo Adventure Kids is an interactive world search.<br/>
@@ -15,7 +15,7 @@ return (
         Have fun and let us know if you enjoy Geo Adventure Kids.
       </p>
     </div>
-    <div className='calCorpInfo'>
+    <div className='calCorpInfo info-container'>
       <h2 className='title'>About CAL Corp.</h2>
       <p className='paragraph'>
         CAL corp is made up of a group of Fanshawe College graduates.<br/>

@@ -51,17 +51,23 @@ const ContactForm = () => {
       action={FORM_ENDPOINT}
       onSubmit={handleSubmit}
       method="POST"
+      className='p-0'
+      id='contact-form'
     >
-      <div >
-        <input type="text" placeholder="Your name" name="name" required size="71" />
+      <h1>Contact Us</h1>
+      <div className='form-group row m-0 align-items-center'>
+        <label htmlFor='name' className='col-auto mb-1'>Name:</label>
+        <input id='name' type="text" placeholder="Your name" name="name" required size="71" className='form-control' />
       </div>
       <br/>
-      <div className="your-email">
-        <input type="email" placeholder="Email" name="email" required size="71"/>
+      <div className='form-group row m-0 align-items-center'>
+        <label htmlFor='email' className='col-auto mb-1'>Email:</label>
+        <input type="email" placeholder="Email" name="email" required size="71" className='form-control'/>
       </div>
       <br/>
-      <div className="your-message">
-        <textarea placeholder="Your message" name="message" required rows="5" cols="70"/>
+      <div className='form-group row m-0 align-items-center'>
+        <label htmlFor='message' className='col-auto mb-1'>Message:</label>
+        <textarea id='message' placeholder="Your message" name="message" required rows="5" cols="70" className='form-control'/>
       </div>
       <br/>
       <div className="submitBtn">

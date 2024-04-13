@@ -1,7 +1,8 @@
 @import '../../styles/colors.scss';
 
-.submitBtn{
-    color: $dark-blue;
-    background-color: $green;
-    
+#contact-form {
+    label {
+        text-align: left;
+    }
 }
+

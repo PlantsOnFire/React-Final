@@ -9,6 +9,7 @@ function LogoutPage ({handleLogout}) {
     <main>
       <Banner title='LOGOUT' img={bye} img2={bye2}/>
       <div className='container text-center p-3' id='welcome-container'>
+        <h1>Do you want to logout?</h1>
         <button className='button-primary' onClick={handleLogout}>Logout</button>
       </div>
     </main>

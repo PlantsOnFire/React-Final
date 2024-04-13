@@ -1,34 +1,29 @@
 @import '../../styles/colors.scss';
 
-.geoKidsInfo{
+.info-container {
     text-align: center;
-    border-radius: 30%;
-    background-color: $green-opaque;
-    padding: 2%;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    margin-left: 27%;
-    margin-right: 27%;
+    width: 800px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 200px;
+    padding: 60px;
+    margin: 1vw calc(50vw - 400px);
     .title{
         font-weight: bolder;
     }
     .paragraph{
         font-weight: bold;
-    }
+    }    
+}
+.geoKidsInfo{
+    background-color: $green-opaque;
 }
 .calCorpInfo{
-    text-align: center;
-    border-radius: 30%;
     background-color: $blue-opaque;
-    padding: 2%;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    margin-left: 27%;
-    margin-right: 27%;
-    .title{
-        font-weight: bolder;
-    }
-    .paragraph{
-        font-weight: bold;
+}
+@media only screen and (max-width: 850px) {
+    .info-container{
+        width: 100%;
+        margin: 1vw 0;
     }
 }

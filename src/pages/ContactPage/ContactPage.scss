@@ -11,14 +11,17 @@
 }
 .contactForm{
     text-align: center;
+    width: 800px;
     padding-top: 1%;
     padding-bottom: 1%;
-    border-radius: 35%;
+    border-radius: 200px;
     background-color: $blue;
-    padding: 3%;
-    padding-top: 4%;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    margin-left: 25%;
-    margin-right: 25%;
+    padding: 60px;
+    margin: 1vw calc(50vw - 400px);
+}
+@media only screen and (max-width: 850px) {
+    .contactForm{
+        width: 100%;
+        margin: 1vw 0;
+    }
 }

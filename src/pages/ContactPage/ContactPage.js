@@ -10,7 +10,9 @@ function ContactPage () {
         Having some troubles or want to know more? Send us a message!
       </div>
       <div className='contactForm'>
-        <ContactForm/>
+        <div className='row m-0'>
+          <ContactForm/>
+        </div>
       </div>
     </main>
   )

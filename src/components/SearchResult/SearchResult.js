@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import './SearchResult.scss';
-import { FaMagnifyingGlass } from "react-icons/fa6";
 
-function SearchResult ({displayCountry, setIsSubmit}) {
+function SearchResult ({displayCountry}) {
   const [population, setPopulation] = useState(displayCountry.population);
   const [time, setTime] = useState(new Date(Date.now()).toLocaleString());
   const [displayTime, setDisplayTime] = useState([]);
@@ -15,14 +14,13 @@ function SearchResult ({displayCountry, setIsSubmit}) {
     const localOffset = d.getTimezoneOffset() * 60000;
     const utc = localTime + localOffset;    
     displayCountry.timezones.forEach(item => {
-      countryTime.push(new Date(utc + (3600000 * item.substr(3,3))).toLocaleString());
+      countryTime.push(new Date(utc + (3600000 * (parseInt(item.substr(3,3))))).toLocaleString());
     });
     setDisplayTime(countryTime);
-  }, [])
+  }, [displayCountry])
 
   return (
-    <div className='container form-container p-5' id='display-country'>
-      <div><button className='button-primary fs-5 mb-5' onClick={()=>{setIsSubmit(false);}}><FaMagnifyingGlass />  Search Again</button></div>
+    <>
       <h1 className='mb-0 p-3'>{displayCountry.name.common}</h1>
       <div id='result-container' className='fs-5 p-4'>
         <div className='row mb-3'>
@@ -41,7 +39,7 @@ function SearchResult ({displayCountry, setIsSubmit}) {
           </div>
           <div className='col-md-6'>
             <div>Your Current Date and Time: <span className='result-data'>{time}</span></div>
-            <div>TimeZones:
+            <div>{displayCountry.name.common}'s' Date and Time:
               <ul className='result-data'>
                 {displayCountry.timezones &&
                   displayCountry.timezones.map((item, index)=><li key={index}>{item}&emsp;{displayTime[index]}</li>)
@@ -57,7 +55,7 @@ function SearchResult ({displayCountry, setIsSubmit}) {
           <div className='col-md-6 order-md-2 img-container'><img src={displayCountry.coatOfArms.png} alt={displayCountry.coatOfArms.alt}/></div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 export default SearchResult;

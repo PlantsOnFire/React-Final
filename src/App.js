@@ -46,8 +46,8 @@ function App() {
     const [addInfo, setAddInfo] = useState(false);
     const [userInfo, setUserInfo] = useState(false);
     const [logoutStatus, setLogoutStatus] = useState('');
-    const [quizResults, setQuizResults] = useState([]);
-    const [deletedAllQuizResults, setDeletedAllQuizResults] = useState(false);
+    // const [quizResults, setQuizResults] = useState([]);
+    // const [deletedAllQuizResults, setDeletedAllQuizResults] = useState(false);
 
   //====================API CALL=========================
     useEffect(()=> {
@@ -78,13 +78,13 @@ function App() {
         setUserID(getUserID());
         setUserEmail(getUserEmail());
         if (userID) {
-          getData(userID)
-            .then(res=>{
-              setQuizResults(res);
-            })
-            .catch(err=>{
-              console.log(err);
-            });
+          // getData(userID)
+          //   .then(res=>{
+          //     setQuizResults(res);
+          //   })
+          //   .catch(err=>{
+          //     console.log(err);
+          //   });
           getUserInfo(userID)
             .then(res=>{
               setUserInfo(res);
@@ -109,22 +109,22 @@ function App() {
           setUserID(false);
           setUserEmail(false);
           setUserInfo(false);
-          setQuizResults([]);
-          if (alert('You are now logged out!') === undefined) {
+          // setQuizResults([]);
+          if (alert('You are now logged out! See you later!') === undefined) {
             navigate('/');
           }
         })
         .catch(err=>setLogoutStatus({message: err, status: false}))
     }
 
-  //==========Fix for all quizzes deleted================
-  useEffect(() => {
-    if (quizResults.length !== 0 || deletedAllQuizResults) {
-      updateQuizResults(userID, quizResults);
-      setDeletedAllQuizResults(false); 
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [quizResults]);
+  // //==========Fix for all quizzes deleted================
+  // useEffect(() => {
+  //   if (quizResults.length !== 0 || deletedAllQuizResults) {
+  //     updateQuizResults(userID, quizResults);
+  //     setDeletedAllQuizResults(false); 
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [quizResults]);
 
   return (
     <div className='d-flex flex-column' id='app-container'>
@@ -139,10 +139,9 @@ function App() {
         <Route path='/search' element={
           <CountrySearchPage
             uniqueContinents={uniqueContinents}
-            worldData={worldData}
           />}
         />
-        <Route path='/random' element={<RandomCountryPage/>}/>
+        <Route path='/random' element={<RandomCountryPage worldData={worldData}/>}/>
 
         <Route path='/account' element={
           <AccountPage 

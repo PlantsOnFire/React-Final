@@ -28,7 +28,7 @@ body {
       &:hover {
         background-color: $dark-blue;
       }
-      &:focus {
+      &:active {
         background-color: $blue;
       }
     }
@@ -37,7 +37,7 @@ body {
       &:hover {
         background-color: $darker-green;
       }
-      &:focus {
+      &:active {
         background-color: $dark-green;
       }
     }
@@ -46,7 +46,7 @@ body {
       &:hover {
         background-color: $dark-red;
       }
-      &:focus {
+      &:active {
         background-color: $red;
       }
     }
