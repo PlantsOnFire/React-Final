@@ -3,8 +3,8 @@ import {Routes, Route, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 //===============Firebase Imports=============
-import {loginFirebase, logoutFirebase, registerFirebase, getUserID, getUserEmail} from './auth';
-import {getData, getUserInfo,updateQuizResults, addUserInformation} from './database';
+import {logoutFirebase, getUserID, getUserEmail} from './auth';
+import {getData, getUserInfo,updateQuizResults} from './database';
 //=============Page Imports===================
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -30,14 +30,15 @@ function App() {
   const navigate = useNavigate();
   //====================API STATES=======================
     const [worldData, setWorldData] = useState([]);
-    const [europeCountries, setEuropeCountries] = useState([]);
-    const [africaCountries, setAfricaCountries] = useState([]);
-    const [nAmericaCountries, setNAmericaCountries] = useState([]);
-    const [oceaniaCountries, setOceaniaCountries] = useState([]);
-    const [sAmericaCountries, setSAmericaCountries] = useState([]);
-    const [asiaCountries, setAsiaCountries] = useState([]);
-    const [antarcticaCountries, setAntarcticaCountries] = useState([]);
-    const uniqueContinents = ['Europe', 'Africa', 'North America', 'Oceania', 'South America', 'Asia', 'Antarctica'];
+    const [uniqueContinents, setUniqueContinents] = useState([
+      {name: 'Europe', data: []}, 
+      {name: 'Africa', data: []}, 
+      {name: 'North America', data: []}, 
+      {name: 'Oceania', data: []}, 
+      {name: 'South America', data: []}, 
+      {name: 'Asia', data: []}, 
+      {name: 'Antarctica', data: []}
+    ]);
 
   //====================ACCOUNT STATES===================
     const [userID, setUserID] = useState(false);
@@ -57,20 +58,17 @@ function App() {
         });
     }, [])
     useEffect(()=> {
-      let europeTemp = worldData.filter(item=> item.continents[0] === 'Europe');
-      let africaTemp = worldData.filter(item=> item.continents[0] === 'Africa');
-      let namericaTemp = worldData.filter(item=> item.continents[0] === 'North America');
-      let oceanTemp = worldData.filter(item=> item.continents[0] === 'Oceania');
-      let samericaTemp = worldData.filter(item=> item.continents[0] === 'South America');
-      let asiaTemp = worldData.filter(item=> item.continents[0] === 'Asia');
-      let antTemp = worldData.filter(item=> item.continents[0] === 'Antarctica');
-      setEuropeCountries(europeTemp);
-      setAfricaCountries(africaTemp);
-      setNAmericaCountries(namericaTemp);
-      setOceaniaCountries(oceanTemp);
-      setSAmericaCountries(samericaTemp);
-      setAsiaCountries(asiaTemp);
-      setAntarcticaCountries(antTemp);
+      let updatedData = [...uniqueContinents];
+      // console.log(updatedData);
+      updatedData[0].data = worldData.filter(item=> item.continents[0] === 'Europe');
+      updatedData[1].data = worldData.filter(item=> item.continents[0] === 'Africa');
+      updatedData[2].data = worldData.filter(item=> item.continents[0] === 'North America');
+      updatedData[3].data = worldData.filter(item=> item.continents[0] === 'Oceania');
+      updatedData[4].data = worldData.filter(item=> item.continents[0] === 'South America');
+      updatedData[5].data = worldData.filter(item=> item.continents[0] === 'Asia');
+      updatedData[6].data = worldData.filter(item=> item.continents[0] === 'Antarctica');
+      setUniqueContinents(updatedData);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [worldData])
   
   //====================ACCOUNT FUNCTIONS================
@@ -112,7 +110,7 @@ function App() {
           setUserEmail(false);
           setUserInfo(false);
           setQuizResults([]);
-          if (alert('You are now logged out!') == undefined) {
+          if (alert('You are now logged out!') === undefined) {
             navigate('/');
           }
         })
@@ -137,14 +135,13 @@ function App() {
             userID={userID}
           />}
         />
-        <Route path='/map' element={
-          <WorldMapPage
-            worldData={worldData}
-            europeCountries={europeCountries}
+        <Route path='/map' element={<WorldMapPage/>}/>
+        <Route path='/search' element={
+          <CountrySearchPage
             uniqueContinents={uniqueContinents}
+            worldData={worldData}
           />}
         />
-        <Route path='/search' element={<CountrySearchPage/>}/>
         <Route path='/random' element={<RandomCountryPage/>}/>
 
         <Route path='/account' element={

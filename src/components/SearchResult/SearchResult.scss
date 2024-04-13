@@ -1,0 +1,26 @@
+@import '../../styles/colors.scss';
+
+#display-country {
+  h1 {
+    text-align: center;
+    background-color: $blue;
+  }
+  #result-container {
+    background-color: $yellow;
+    font-weight: bold;
+    img {
+      max-height: 200px;
+      width: auto;
+    }
+    .result-data {
+      color: $blue;
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .img-container {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
